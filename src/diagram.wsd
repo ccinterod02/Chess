@@ -1,0 +1,6 @@
+@startuml Chess - Polimorfismo
+class Chess {
+    + play(): void
+    + stop(): void
+}
+@enduml
