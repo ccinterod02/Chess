@@ -1,6 +1,83 @@
 @startuml Chess - Polimorfismo
 class Chess {
-    + play(): void
-    + stop(): void
+
 }
+
+class Coordinate {
+
+}
+
+class Player {
+
+}
+
+class WhitePlayer {
+
+}
+
+class BlackPlayer {
+
+}
+
+class Pawn {
+    
+}
+
+class King {
+
+}
+
+class Knight {
+
+}
+
+enum Color {
+
+}
+
+class Box {
+
+}
+
+class Game {
+
+}
+
+class Piece {
+
+}
+
+class ChessBoard {
+
+}
+
+class Console {
+
+}
+
+Chess --* Game
+
+Player -.-> Console
+Game -.-> Console
+
+Game --* ChessBoard
+Game --* WhitePlayer
+Game --* BlackPlayer
+
+Chessboard --* "64" Box
+Box --* Coordinate
+Box --* Color
+
+Player --o "2" Knight
+Player --o "1" King
+Player --o "8" Pawn
+Piece --> Box
+
+King -up-|> Piece
+Pawn -up-|> Piece
+Knight -up-|> Piece
+
+
+WhitePlayer -up-|> Player
+BlackPlayer -up-|> Player
 @enduml
