@@ -1,16 +1,14 @@
-
 public class Game {
 
-    private WhitePlayer whitePlayer;
-    private BlackPlayer blackPlayer;
+    private Player[] players;
     private ChessBoard chessBoard;
 
     public Game() {
-        whitePlayer = new WhitePlayer();
-        blackPlayer = new BlackPlayer();
+        for (int i = 0; i < 2; i++) {
+            players[i] = new Player(Color.values()[i]);
+        }
         chessBoard = new ChessBoard();
     }
-
 
     public boolean isResumed() {
         String answer;
@@ -22,10 +20,19 @@ public class Game {
         return answer.equals("y") || answer.equals("Y");
     }
 
-    public void play() {
+    public void play() { 
+        int i = 1;
+
         do {
-            // refactorizar los player para que se use el polimorfismo
-        } while (!whitePlayer.hasWon() && !blackPlayer.hasWon());
+            this.chessBoard.display();
+            if (i == 0) {
+                i = 1;
+            }
+            else {
+                i = 0;
+            }
+            this.players[i].move();
+        } while (!this.players[i].hasWon());
     }
 
 }

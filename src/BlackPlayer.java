@@ -1,4 +1,4 @@
 
-public class BlackPlayer {
+public class BlackPlayer extends Player {
 
 }

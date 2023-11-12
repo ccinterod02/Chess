@@ -11,13 +11,6 @@ class Player {
 
 }
 
-class WhitePlayer {
-
-}
-
-class BlackPlayer {
-
-}
 
 class Pawn {
     
@@ -55,16 +48,15 @@ class Console {
 
 }
 
-Chess --* Game
+Chess --o Game
 
 Player -.-> Console
 Game -.-> Console
 
 Game --* ChessBoard
-Game --* WhitePlayer
-Game --* BlackPlayer
+Game --* "2" Player
 
-Chessboard --* "64" Box
+ChessBoard --* "64" Box
 Box --* Coordinate
 Box --* Color
 
@@ -73,11 +65,8 @@ Player --o "1" King
 Player --o "8" Pawn
 Piece --> Box
 
-King -up-|> Piece
-Pawn -up-|> Piece
-Knight -up-|> Piece
+King --|> Piece
+Pawn --|> Piece
+Knight --|> Piece
 
-
-WhitePlayer -up-|> Player
-BlackPlayer -up-|> Player
 @enduml
