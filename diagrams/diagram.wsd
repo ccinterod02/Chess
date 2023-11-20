@@ -51,7 +51,7 @@ class Console {
 Chess --o Game
 
 Player -.-> Console
-Game -.-> Console
+Game -.left-> Console
 
 Game --* ChessBoard
 Game --* "2" Player

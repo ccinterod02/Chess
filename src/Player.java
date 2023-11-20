@@ -1,16 +1,21 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class Player {
 
-    Pieces[] pieces;
+    List<Piece> pieces;
 
-    public Player(Color color) {
-        
+    public Player() {
+        pieces = new ArrayList<Piece>();
     }
 
-    public boolean hasWon() {
+    public void move(ChessBoard chessBoard) {
+        Console console = new Console();
+        String answer = console.readString("¿Next move?: (c,f c,f)");
+    }
+
+    public boolean hasMate() {
         return false;
     }
 
-    public void move() {
-    }
 }

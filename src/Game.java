@@ -4,10 +4,9 @@ public class Game {
     private ChessBoard chessBoard;
 
     public Game() {
-        for (int i = 0; i < 2; i++) {
-            players[i] = new Player(Color.values()[i]);
-        }
         chessBoard = new ChessBoard();
+        players[0] = new WhitePlayer();
+        players[1] = new BlackPlayer();
     }
 
     public boolean isResumed() {
@@ -21,18 +20,17 @@ public class Game {
     }
 
     public void play() { 
-        int i = 1;
-
+        int player = 1;
+        
         do {
-            this.chessBoard.display();
-            if (i == 0) {
-                i = 1;
+            if (player == 1) {
+                player = 0;
             }
             else {
-                i = 0;
+                player = 1;
             }
-            this.players[i].move();
-        } while (!this.players[i].hasWon());
+            this.chessBoard.display();
+            this.players[player].move(chessBoard);
+        } while (!this.players[player].hasMate());
     }
-
 }
