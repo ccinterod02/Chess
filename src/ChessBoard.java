@@ -1,10 +1,10 @@
 
 public class ChessBoard {
 
-    Box[][] boxes;
+    Square[][] squares;
 
     public ChessBoard() {
-        boxes = new Box[8][8];
+        squares = new Square[8][8];
     }
 
     public void display() {
@@ -12,3 +12,4 @@ public class ChessBoard {
     }
 
 }
+
