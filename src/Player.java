@@ -4,6 +4,7 @@ import java.util.List;
 public class Player {
 
     List<Piece> pieces;
+    Color color;
 
     public Player() {
         pieces = new ArrayList<Piece>();
@@ -24,8 +25,7 @@ public class Player {
             actualPiece = this.getActualPiece(answer.split(",")[0]);
 
         } while (!this.isValidMove(chessBoard, actualPiece, newSquare));
-        // todo: hasMate(), accion de comer, etc... ¿Donde metemos todo eso?
-        actualPiece.move(chessBoard, newSquare);
+        chessBoard.move(actualPiece, newSquare);
 
     }
 
@@ -65,6 +65,10 @@ public class Player {
 
     public boolean hasMate() {
         return false;
+    }
+
+    public Color getColor() {
+        return color;
     }
 
 }

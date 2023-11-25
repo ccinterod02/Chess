@@ -32,5 +32,7 @@ public class Game {
             this.chessBoard.display();
             this.players[player].move(chessBoard);
         } while (!this.players[player].hasMate());
+
+        new Console().println("Congratulations!     Player " + players[player].getColor().getString() + "has won!");
     }
 }
