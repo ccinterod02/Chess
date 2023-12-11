@@ -1,12 +1,11 @@
+import java.util.ArrayList;
+
 public class Game {
 
     private Player[] players;
     private ChessBoard chessBoard;
 
     public Game() {
-        chessBoard = new ChessBoard();
-        players[0] = new WhitePlayer();
-        players[1] = new BlackPlayer();
     }
 
     public boolean isResumed() {
@@ -20,19 +19,29 @@ public class Game {
     }
 
     public void play() { 
-        int player = 1;
+        int playerIndex = 1;
+        
+        ArrayList<Piece> blackPieces = new ArrayList<Piece>(16);
+        ArrayList<Piece> whitePieces = new ArrayList<Piece>(16); 
+        
+        chessBoard = new ChessBoard(whitePieces, blackPieces);
+        players[0] = new WhitePlayer(whitePieces);
+        players[1] = new BlackPlayer(blackPieces);
+
         
         do {
-            if (player == 1) {
-                player = 0;
+
+            if (playerIndex == 1) {
+                playerIndex = 0;
             }
             else {
-                player = 1;
+                playerIndex = 1;
             }
-            this.chessBoard.display();
-            this.players[player].move(chessBoard);
-        } while (!this.players[player].hasMate());
 
-        new Console().println("Congratulations!     Player " + players[player].getColor().getString() + "has won!");
+            this.chessBoard.display();
+            this.players[playerIndex].move(chessBoard);
+        } while (!this.players[playerIndex].hasMate());
+
+        new Console().println("Congratulations!     Player " + players[playerIndex].getColor().getString() + "has won!");
     }
 }

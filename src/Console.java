@@ -6,6 +6,11 @@ public class Console {
         System.out.println(message);
     }
 
+
+    public  void println(int message) {
+        System.out.println(message);
+    }
+
     public String readString(String message) {
         
         Scanner scanner = new Scanner(System.in);

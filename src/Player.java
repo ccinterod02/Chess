@@ -1,13 +1,12 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class Player {
 
-    List<Piece> pieces;
+    ArrayList<Piece> pieces;
     Color color;
 
-    public Player() {
-        pieces = new ArrayList<Piece>();
+    public Player(ArrayList<Piece> pieces) {
+        this.pieces = pieces;
     }
 
     public void move(ChessBoard chessBoard) {
@@ -58,7 +57,7 @@ public class Player {
     private boolean isValid(String str) {
         if (!str.matches("[a-h][1-8],[a-h][1-8]")) {
             new Console().println("Bad format.  (cf,cf)");
-            return false;
+            return false; 
         }
         return true;
     }
